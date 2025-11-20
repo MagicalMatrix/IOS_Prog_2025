@@ -115,7 +115,10 @@ class ViewController: UIViewController {
                 i += 1
             }
             //convert first string to actual number
-            result = Double(numberBuffer)!
+            if (numberBuffer.count > 0)
+            {
+                result = Double(numberBuffer)!
+            }
             numberBuffer = ""
             
         }
