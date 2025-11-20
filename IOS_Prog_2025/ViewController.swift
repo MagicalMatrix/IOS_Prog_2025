@@ -45,7 +45,7 @@ class ViewController: UIViewController {
     {
         curBuffer = ""
         CalcBufer.text = ""
-        CalcResult.text = ""
+        CalcResult.text = "0"
     }
     
     func appendBuffer(val: String)
