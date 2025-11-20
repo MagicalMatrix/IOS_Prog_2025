@@ -73,34 +73,48 @@ class ViewController: UIViewController {
          */
         var numberBuffer = ""
         var result = 0
-        var wasLastOperator = false
         var isNegative = false
+        
+        var stashedExpression = ""
+        var secondNumber = 0
         
         //
         var i = 0
         //check starting -
-        while curBuffer[i] == "-" {
-            isNegative = !isNegative
-            i += 1
-        }
-        while i < curBuffer.count && !isOperator(char: curBuffer[i])
-        {
-            numberBuffer += String(curBuffer[i])
-            i += 1
-        }
-        //convert first string to actual number
-        result = Int(numberBuffer)!
-        numberBuffer = ""
         
-        if (isNegative)
+        //if starts by expression then use last result as base
+        if i < curBuffer.count && isOperator(char: curBuffer[i])
         {
-            result = -result
-            isNegative = false
+            stashedExpression = String(curBuffer[i])
+            result = Int(CalcResult.text!)!
+            i += 1
         }
+        else
+        {
+            /*
+            while curBuffer[i] == "-" {
+                isNegative = !isNegative
+                i += 1
+            }
+            */
+            while i < curBuffer.count && !isOperator(char: curBuffer[i])
+            {
+                numberBuffer += String(curBuffer[i])
+                i += 1
+            }
+            //convert first string to actual number
+            result = Int(numberBuffer)!
+            numberBuffer = ""
+            
+            if (isNegative)
+            {
+                result = -result
+                isNegative = false
+            }
+        }
+
         
         //start doing actual expressions
-        var stashedExpression = ""
-        var secondNumber = 0
         
         while i < curBuffer.count
         {
