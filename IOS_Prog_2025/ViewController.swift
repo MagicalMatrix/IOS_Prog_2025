@@ -100,16 +100,25 @@ class ViewController: UIViewController {
             {
                 stashedExpression = String(curBuffer[i])
                 i += 1
+                /*
+                if curBuffer[i] == "-"
+                {
+                    minusNum += 1
+                }
+                 */
             }
+            
+            //if counted more than one minus, stop counting it as operator
+            while i < curBuffer.count && curBuffer[i] == "-"
+            {
+                minusNum += 1
+                i += 1
+            }
+
         }
         else //if not starting by opeator
         {
-            /*
-            while curBuffer[i] == "-" {
-                isNegative = !isNegative
-                i += 1
-            }
-            */
+
             while i < curBuffer.count && !isOperator(char: curBuffer[i])
             {
                 numberBuffer += String(curBuffer[i])
@@ -119,13 +128,6 @@ class ViewController: UIViewController {
             result = Double(numberBuffer)!
             numberBuffer = ""
             
-            /*
-            if (isNegative)
-            {
-                result = -result
-                isNegative = false
-            }
-             */
         }
 
         
@@ -142,18 +144,20 @@ class ViewController: UIViewController {
                     secondNumber = Double(numberBuffer)!
                     numberBuffer = ""
                     
-                    if minusNum > 1 && (minusNum - 1) % 2 == 1
+                    if minusNum % 2 == 1
                     {
+                        print(secondNumber)
                         secondNumber *= -1
+                        print(secondNumber)
                     }
                     minusNum = 0
                 }
                 
                 //if counted more than one minus, stop counting it as operator
-                if curBuffer[i] == "-"
+                if stashedExpression.count > 0 && curBuffer[i] == "-"
                 {
                     minusNum += 1
-                    if minusNum > 1
+                    if minusNum > 0
                     {
                         i += 1
                         continue
@@ -177,18 +181,6 @@ class ViewController: UIViewController {
                 }
                 //*/
                 
-                /*
-                //if no stashed expression add to stash
-                if stashedExpression.count == 0
-                {
-                    stashedExpression = String(curBuffer[i])
-                }
-                else //some expression stashed, evaluate
-                {
-                    result = evaluateExpression(expr: stashedExpression[0], first: result, second: secondNumber)
-                    stashedExpression = String(curBuffer[i])
-                }
-                */
             }
             else
             {
@@ -196,12 +188,6 @@ class ViewController: UIViewController {
             }
             
             i += 1
-            /*
-            while i < curBuffer.count && curBuffer[i] == "-" {
-                isNegative = !isNegative
-                i += 1
-            }
-            */
         }
         
         //if loaded some number, then convert it
@@ -210,9 +196,11 @@ class ViewController: UIViewController {
             secondNumber = Double(numberBuffer)!
             numberBuffer = ""
             
-            if minusNum > 1 && (minusNum - 1) % 2 == 1
+            if minusNum % 2 == 1
             {
+                print(secondNumber)
                 secondNumber *= -1
+                print(secondNumber)
             }
             minusNum = 0
         }
@@ -220,7 +208,6 @@ class ViewController: UIViewController {
         //evaluate last operator if still exists some
         if stashedExpression.count > 0
         {
-            print(stashedExpression)
             result = evaluateExpression(expr: stashedExpression[0], first: result, second: secondNumber)
             stashedExpression = ""
         }
