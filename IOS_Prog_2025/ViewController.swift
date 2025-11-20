@@ -61,17 +61,6 @@ class ViewController: UIViewController {
     
     @IBAction func Confirm(_ sender: Any)
     {
-        /*
-        var buffer = curBuffer
-        //percentage
-        buffer = buffer.replacingOccurrences(of: "%", with: "*0.01") <#T##StringProtocol#>)
-        
-        let expression = NSExpression(format: curBuffer)
-        var returnValue = expression.expressionValue(with: nil, context: nil) as! Double
-        returnValue = round(returnValue)
-        CalcResult.text = String(format: "%.0f", returnValue)
-        clearBuffer()
-         */
         var numberBuffer = ""
         var result:Double = 0
         var minusNum = 0
@@ -81,7 +70,8 @@ class ViewController: UIViewController {
         
         //
         var i = 0
-        //check starting -
+        
+        curBuffer = curBuffer.replacingOccurrences(of: "log(", with: "")
         
         //if starting by operator
         if i < curBuffer.count && isOperator(char: curBuffer[i])
@@ -316,11 +306,13 @@ class ViewController: UIViewController {
     
     @IBAction func Logarithm(_ sender: Any)
     {
-        TryAddOperator(oper: ")")
+        if (curBuffer.count <= 0 || isInstantOperator(char: curBuffer.last!) || !isOperator(char: curBuffer.last!))
+        {
+            curBuffer = "log(" + curBuffer + ")"
+            CalcBufer.text = curBuffer
+        }
+        //TryAddOperator(oper: ")")
         //if
-        //curBuffer = "log(" + curBuffer + ")"
-        //CalcBufer.text = curBuffer
-        //appendBuffer(val: " + ")
     }
     
     @IBAction func Power(_ sender: Any)
