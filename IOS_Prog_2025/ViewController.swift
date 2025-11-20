@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Foundation
 
 extension String
 {
@@ -72,11 +73,11 @@ class ViewController: UIViewController {
         clearBuffer()
          */
         var numberBuffer = ""
-        var result = 0
+        var result:Double = 0
         var isNegative = false
         
         var stashedExpression = ""
-        var secondNumber = 0
+        var secondNumber:Double = 0
         
         //
         var i = 0
@@ -86,7 +87,7 @@ class ViewController: UIViewController {
         if i < curBuffer.count && isOperator(char: curBuffer[i])
         {
             stashedExpression = String(curBuffer[i])
-            result = Int(CalcResult.text!)!
+            result = Double(CalcResult.text!)!
             i += 1
         }
         else
@@ -103,7 +104,7 @@ class ViewController: UIViewController {
                 i += 1
             }
             //convert first string to actual number
-            result = Int(numberBuffer)!
+            result = Double(numberBuffer)!
             numberBuffer = ""
             
             if (isNegative)
@@ -123,7 +124,7 @@ class ViewController: UIViewController {
                 //if loaded some number, then convert it
                 if numberBuffer.count > 0
                 {
-                    secondNumber = Int(numberBuffer)!
+                    secondNumber = Double(numberBuffer)!
                     numberBuffer = ""
                 }
                 
@@ -135,6 +136,7 @@ class ViewController: UIViewController {
                 else //some expression stashed, evaluate
                 {
                     result = evaluateExpression(expr: stashedExpression[0], first: result, second: secondNumber)
+                    stashedExpression = String(curBuffer[i])
                 }
             }
             else
@@ -154,14 +156,16 @@ class ViewController: UIViewController {
         //if loaded some number, then convert it
         if numberBuffer.count > 0
         {
-            secondNumber = Int(numberBuffer)!
+            secondNumber = Double(numberBuffer)!
             numberBuffer = ""
         }
         
         //evaluate last operator if still exists some
         if stashedExpression.count > 0
         {
+            print(stashedExpression)
             result = evaluateExpression(expr: stashedExpression[0], first: result, second: secondNumber)
+            stashedExpression = ""
         }
         
         //convert result back to string and display
@@ -169,7 +173,7 @@ class ViewController: UIViewController {
         CalcResult.text = String(result)
     }
     
-    func evaluateExpression(expr: Character, first: Int, second: Int) -> Int
+    func evaluateExpression(expr: Character, first: Double, second: Double) -> Double
     {
         if (expr == "+")
         {
@@ -187,7 +191,24 @@ class ViewController: UIViewController {
         {
             return first / second
         }
+        if (expr == "^")
+        {
+            return pow(first, second)
+        }
         return 0
+    }
+    
+    func evaluateInstantExpression(expr: Character, first: Double) -> Double
+    {
+        if (expr == "%")
+        {
+            return first * 0.01
+        }
+        if (expr == ")") //log
+        {
+            return log(first)
+        }
+        return first
     }
     
     func isOperator(char: Character) -> Bool
@@ -203,7 +224,7 @@ class ViewController: UIViewController {
     func TryAddOperator(oper: String)
     {
         //if last is not operator then add operator
-        if (!isOperator(char: curBuffer.last!)) //here change for second last if wants spaces
+        if (curBuffer.count <= 0 || !isOperator(char: curBuffer.last!)) //here change for second last if wants spaces
         {
             appendBuffer(val: oper)
         }
@@ -217,7 +238,7 @@ class ViewController: UIViewController {
     
     @IBAction func Addition(_ sender: Any)
     {
-        appendBuffer(val: "+")
+        TryAddOperator(oper: "+")
     }
     
     @IBAction func Subtraction(_ sender: Any)
@@ -227,23 +248,25 @@ class ViewController: UIViewController {
     
     @IBAction func Multiplication(_ sender: Any)
     {
-        appendBuffer(val: "*")
+        TryAddOperator(oper: "*")
     }
     
     @IBAction func Division(_ sender: Any)
     {
-        appendBuffer(val: "/")
+        TryAddOperator(oper: "/")
     }
     
     @IBAction func Percentage(_ sender: Any)
     {
-        appendBuffer(val: "%")
+        TryAddOperator(oper: "%")
     }
     
     @IBAction func Logarithm(_ sender: Any)
     {
-        curBuffer = "log(" + curBuffer + ")"
-        CalcBufer.text = curBuffer
+        TryAddOperator(oper: ")")
+        //if
+        //curBuffer = "log(" + curBuffer + ")"
+        //CalcBufer.text = curBuffer
         //appendBuffer(val: " + ")
     }
     
