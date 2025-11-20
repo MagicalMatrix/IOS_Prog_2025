@@ -83,14 +83,26 @@ class ViewController: UIViewController {
         var i = 0
         //check starting -
         
-        //if starts by expression then use last result as base
+        //if starting by operator
         if i < curBuffer.count && isOperator(char: curBuffer[i])
         {
-            stashedExpression = String(curBuffer[i])
             result = Double(CalcResult.text!)!
-            i += 1
+            
+            //if starts by instant expression evaluate it on result
+            while i < curBuffer.count && isInstantOperator(char: curBuffer[i])
+            {
+                result = evaluateInstantExpression(expr: curBuffer[i], first: result)
+                i += 1
+            }
+            
+            //if starts by expression then use last result as base
+            if i < curBuffer.count && isOperator(char: curBuffer[i])
+            {
+                stashedExpression = String(curBuffer[i])
+                i += 1
+            }
         }
-        else
+        else //if not starting by opeator
         {
             /*
             while curBuffer[i] == "-" {
@@ -121,6 +133,7 @@ class ViewController: UIViewController {
         {
             if isOperator(char: curBuffer[i])
             {
+                
                 //if loaded some number, then convert it
                 if numberBuffer.count > 0
                 {
@@ -128,6 +141,24 @@ class ViewController: UIViewController {
                     numberBuffer = ""
                 }
                 
+                //*
+                //if something in the stash
+                if stashedExpression.count > 0
+                {
+                    result = evaluateExpression(expr: stashedExpression[0], first: result, second: secondNumber)
+                    //stashedExpression = String(curBuffer[i])
+                }
+                if isInstantOperator(char: curBuffer[i])
+                {
+                    result = evaluateInstantExpression(expr: curBuffer[i], first: result)
+                }
+                else //operator not instant, add to stash
+                {
+                    stashedExpression = String(curBuffer[i])
+                }
+                //*/
+                
+                /*
                 //if no stashed expression add to stash
                 if stashedExpression.count == 0
                 {
@@ -138,6 +169,7 @@ class ViewController: UIViewController {
                     result = evaluateExpression(expr: stashedExpression[0], first: result, second: secondNumber)
                     stashedExpression = String(curBuffer[i])
                 }
+                */
             }
             else
             {
@@ -211,6 +243,15 @@ class ViewController: UIViewController {
         return first
     }
     
+    func isInstantOperator(char: Character) -> Bool
+    {
+        if (char == "%" || char == ")")
+        {
+            return true
+        }
+        return false
+    }
+    
     func isOperator(char: Character) -> Bool
     {
         if (char == "+" || char == "-" || char == "*" || char == "/" || char == "%" || char == ")" || char == "^" )
@@ -224,7 +265,7 @@ class ViewController: UIViewController {
     func TryAddOperator(oper: String)
     {
         //if last is not operator then add operator
-        if (curBuffer.count <= 0 || !isOperator(char: curBuffer.last!)) //here change for second last if wants spaces
+        if (curBuffer.count <= 0 || isInstantOperator(char: curBuffer.last!) || !isOperator(char: curBuffer.last!)) //here change for second last if wants spaces
         {
             appendBuffer(val: oper)
         }
