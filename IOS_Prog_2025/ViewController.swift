@@ -74,7 +74,7 @@ class ViewController: UIViewController {
          */
         var numberBuffer = ""
         var result:Double = 0
-        var isNegative = false
+        var minusNum = 0
         
         var stashedExpression = ""
         var secondNumber:Double = 0
@@ -119,11 +119,13 @@ class ViewController: UIViewController {
             result = Double(numberBuffer)!
             numberBuffer = ""
             
+            /*
             if (isNegative)
             {
                 result = -result
                 isNegative = false
             }
+             */
         }
 
         
@@ -139,6 +141,23 @@ class ViewController: UIViewController {
                 {
                     secondNumber = Double(numberBuffer)!
                     numberBuffer = ""
+                    
+                    if minusNum > 1 && (minusNum - 1) % 2 == 1
+                    {
+                        secondNumber *= -1
+                    }
+                    minusNum = 0
+                }
+                
+                //if counted more than one minus, stop counting it as operator
+                if curBuffer[i] == "-"
+                {
+                    minusNum += 1
+                    if minusNum > 1
+                    {
+                        i += 1
+                        continue
+                    }
                 }
                 
                 //*
@@ -190,6 +209,12 @@ class ViewController: UIViewController {
         {
             secondNumber = Double(numberBuffer)!
             numberBuffer = ""
+            
+            if minusNum > 1 && (minusNum - 1) % 2 == 1
+            {
+                secondNumber *= -1
+            }
+            minusNum = 0
         }
         
         //evaluate last operator if still exists some
