@@ -360,8 +360,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="CalcBufer" destination="gLT-4x-yw0" id="4bM-Bc-Aiz"/>
-                        <outlet property="CalcResult" destination="2ba-Cl-Jkf" id="hoF-VU-BQ1"/>
+                        <outlet property="CalcBufer" destination="gLT-4x-yw0" id="6ej-pO-ieM"/>
+                        <outlet property="CalcResult" destination="2ba-Cl-Jkf" id="g5j-T8-brq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
