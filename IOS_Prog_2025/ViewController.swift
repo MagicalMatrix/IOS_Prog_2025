@@ -71,7 +71,6 @@ class ViewController: UIViewController {
         CalcResult.text = String(format: "%.0f", returnValue)
         clearBuffer()
          */
-        var buffer = curBuffer
         var numberBuffer = ""
         var result = 0
         var wasLastOperator = false
@@ -84,7 +83,7 @@ class ViewController: UIViewController {
             isNegative = !isNegative
             i += 1
         }
-        while !isOperator(char: curBuffer[i])
+        while i < curBuffer.count && !isOperator(char: curBuffer[i])
         {
             numberBuffer += String(curBuffer[i])
             i += 1
@@ -99,33 +98,61 @@ class ViewController: UIViewController {
             isNegative = false
         }
         
-        /*
-        for char in curBuffer
-        {
-            //ignore logarithm heading
-            if (char == "l" || char == "o" || char == "g" || char == "(")
-            {
-                continue
-            }
-            //if not operator add to numberBuffer
-            if(!isOperator(char: char))
-            {
-                numberBuffer += String(char)
-            }
-            else //is an operator, evaluate
-            {
-                var addedValue = Int(numberBuffer)
-                numberBuffer = ""
-                
-                
-            }
-        }
-        */
+        //start doing actual expressions
+        var stashedExpression = ""
+        var secondNumber = 0
         
+        while i < curBuffer.count
+        {
+            if isOperator(char: curBuffer[i])
+            {
+                //if loaded some number, then convert it
+                if numberBuffer.count > 0
+                {
+                    secondNumber = Int(numberBuffer)!
+                    numberBuffer = ""
+                }
+                
+                //if no stashed expression add to stash
+                if stashedExpression.count == 0
+                {
+                    stashedExpression = String(curBuffer[i])
+                }
+                else //some expression stashed, evaluate
+                {
+                    result = evaluateExpression(expr: stashedExpression[0], first: result, second: secondNumber)
+                }
+            }
+            else
+            {
+                numberBuffer += String(curBuffer[i])
+            }
+            
+            i += 1
+            /*
+            while i < curBuffer.count && curBuffer[i] == "-" {
+                isNegative = !isNegative
+                i += 1
+            }
+            */
+        }
+        
+        //if loaded some number, then convert it
+        if numberBuffer.count > 0
+        {
+            secondNumber = Int(numberBuffer)!
+            numberBuffer = ""
+        }
+        
+        //evaluate last operator if still exists some
+        if stashedExpression.count > 0
+        {
+            result = evaluateExpression(expr: stashedExpression[0], first: result, second: secondNumber)
+        }
         
         //convert result back to string and display
         clearBuffer()
-        CalcResult.text = String(format: "%.0f", result)
+        CalcResult.text = String(result)
     }
     
     func evaluateExpression(expr: Character, first: Int, second: Int) -> Int
@@ -196,7 +223,7 @@ class ViewController: UIViewController {
     
     @IBAction func Percentage(_ sender: Any)
     {
-        appendBuffer(val: " % ")
+        appendBuffer(val: "%")
     }
     
     @IBAction func Logarithm(_ sender: Any)
@@ -208,7 +235,7 @@ class ViewController: UIViewController {
     
     @IBAction func Power(_ sender: Any)
     {
-        appendBuffer(val: " ^ ")
+        appendBuffer(val: "^")
     }
     
     //-------------------------------------------------------------
