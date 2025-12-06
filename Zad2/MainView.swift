@@ -80,25 +80,3 @@ struct MainView: View {
 #Preview {
     MainView()
 }
-
-/*
-List($tasks)
-{ $task in NavigationLink (destination: TaskView(task: $task), label: <#T##() -> View#>)
-    
-    
-    Text(task.name)
-        .swipeActions(edge: .trailing)
-    {
-        Button(role: .destructive, action: {
-            if let current = tasks.firstIndex(where: {$0.id == task.id})
-            {
-                tasks.remove(at: current)
-            }
-        })
-        {
-            Label("remove?", systemImage: "trash")
-
-        }
-    }
-}
-*/
