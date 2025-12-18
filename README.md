@@ -1,13 +1,9 @@
 Adam Migdalski
-ZAD 3
-3.1 zrobione
-3.2 zrobione:
+ZAD 4
+4.1 zrobione
+4.2 nie zrobione
+4.3 nie zrobione
 
-dane są wczytywane na wejściu, ale nie jestem pewien czy poprzez użycie "fixtures"
-3.3 zrobione
-
-3.4 nie zrobione
-3.5 nie zrobione
-
-
+4.4 nie zrobione
+4.5 nie zrobione
 

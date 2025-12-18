@@ -14,7 +14,11 @@ struct Zad3App: App {
     
     init ()
     {
-        loadData()
+        //check categories
+        checkWebData(URLString: "http://127.0.0.1:5000/categories", DataToGather: CategoryJson(id: 1, name: ""))
+        //check products
+        checkWebData(URLString: "http://127.0.0.1:5000/products", DataToGather: ProductsJson(id: 1, name: "", price: 0, desc: "", category_id: 1))
+        //loadData()
     }
 
     var body: some Scene {
@@ -25,9 +29,47 @@ struct Zad3App: App {
     }
 }
 
+struct CategoryJson: Decodable {
+    let id: Int
+    let name: String
+}
+
+struct ProductsJson: Decodable {
+    let id: Int
+    let name: String
+    let price: Float
+    let desc: String
+    let category_id: Int
+}
+
 extension Zad3App
 {
+    func checkWebData<DType: Decodable>(URLString: String, DataToGather: DType)
+    {
+        let url = URL(string: URLString)!
+        
+
+        //*
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            //print("whatever1.5")
+            let decoder = JSONDecoder()
+            if let data = data {
+                
+                do {
+                    let dataContent = try decoder.decode([DType].self, from: data)
+                    print(dataContent)
+                }
+                catch
+                {
+                    print("error")
+                }
+            }
+        }
+        //*/
+        task.resume()
+    }
     
+    /*
     func loadData() {
         let context = persistenceController.container.viewContext
         
@@ -89,4 +131,5 @@ extension Zad3App
             return false
         }
     }
+     */
 }

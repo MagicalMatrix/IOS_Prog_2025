@@ -7,19 +7,19 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		3EED40F62EE8D9D80093BE23 /* Zad3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Zad3.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E9A70982EF3EE3A000E8300 /* Zad4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Zad4.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		3EED40F82EE8D9D80093BE23 /* Zad3 */ = {
+		3E9A709A2EF3EE3A000E8300 /* Zad4 */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Zad3;
+			path = Zad4;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		3EED40F32EE8D9D80093BE23 /* Frameworks */ = {
+		3E9A70952EF3EE3A000E8300 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -29,18 +29,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3EED40ED2EE8D9D80093BE23 = {
+		3E9A708F2EF3EE3A000E8300 = {
 			isa = PBXGroup;
 			children = (
-				3EED40F82EE8D9D80093BE23 /* Zad3 */,
-				3EED40F72EE8D9D80093BE23 /* Products */,
+				3E9A709A2EF3EE3A000E8300 /* Zad4 */,
+				3E9A70992EF3EE3A000E8300 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		3EED40F72EE8D9D80093BE23 /* Products */ = {
+		3E9A70992EF3EE3A000E8300 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3EED40F62EE8D9D80093BE23 /* Zad3.app */,
+				3E9A70982EF3EE3A000E8300 /* Zad4.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -48,64 +48,64 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3EED40F52EE8D9D80093BE23 /* Zad3 */ = {
+		3E9A70972EF3EE3A000E8300 /* Zad4 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3EED41092EE8D9D90093BE23 /* Build configuration list for PBXNativeTarget "Zad3" */;
+			buildConfigurationList = 3E9A70AB2EF3EE3B000E8300 /* Build configuration list for PBXNativeTarget "Zad4" */;
 			buildPhases = (
-				3EED40F22EE8D9D80093BE23 /* Sources */,
-				3EED40F32EE8D9D80093BE23 /* Frameworks */,
-				3EED40F42EE8D9D80093BE23 /* Resources */,
+				3E9A70942EF3EE3A000E8300 /* Sources */,
+				3E9A70952EF3EE3A000E8300 /* Frameworks */,
+				3E9A70962EF3EE3A000E8300 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				3EED40F82EE8D9D80093BE23 /* Zad3 */,
+				3E9A709A2EF3EE3A000E8300 /* Zad4 */,
 			);
-			name = Zad3;
+			name = Zad4;
 			packageProductDependencies = (
 			);
-			productName = Zad3;
-			productReference = 3EED40F62EE8D9D80093BE23 /* Zad3.app */;
+			productName = Zad4;
+			productReference = 3E9A70982EF3EE3A000E8300 /* Zad4.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		3EED40EE2EE8D9D80093BE23 /* Project object */ = {
+		3E9A70902EF3EE3A000E8300 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1620;
 				LastUpgradeCheck = 1620;
 				TargetAttributes = {
-					3EED40F52EE8D9D80093BE23 = {
+					3E9A70972EF3EE3A000E8300 = {
 						CreatedOnToolsVersion = 16.2;
 					};
 				};
 			};
-			buildConfigurationList = 3EED40F12EE8D9D80093BE23 /* Build configuration list for PBXProject "Zad3" */;
+			buildConfigurationList = 3E9A70932EF3EE3A000E8300 /* Build configuration list for PBXProject "Zad4" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = 3EED40ED2EE8D9D80093BE23;
+			mainGroup = 3E9A708F2EF3EE3A000E8300;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 3EED40F72EE8D9D80093BE23 /* Products */;
+			productRefGroup = 3E9A70992EF3EE3A000E8300 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3EED40F52EE8D9D80093BE23 /* Zad3 */,
+				3E9A70972EF3EE3A000E8300 /* Zad4 */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		3EED40F42EE8D9D80093BE23 /* Resources */ = {
+		3E9A70962EF3EE3A000E8300 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -115,7 +115,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		3EED40F22EE8D9D80093BE23 /* Sources */ = {
+		3E9A70942EF3EE3A000E8300 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -125,7 +125,7 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		3EED41072EE8D9D90093BE23 /* Debug */ = {
+		3E9A70A92EF3EE3B000E8300 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -188,7 +188,7 @@
 			};
 			name = Debug;
 		};
-		3EED41082EE8D9D90093BE23 /* Release */ = {
+		3E9A70AA2EF3EE3B000E8300 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -244,14 +244,14 @@
 			};
 			name = Release;
 		};
-		3EED410A2EE8D9D90093BE23 /* Debug */ = {
+		3E9A70AC2EF3EE3B000E8300 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Zad3/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Zad4/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -264,7 +264,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = MagicalMatrix.Zad3;
+				PRODUCT_BUNDLE_IDENTIFIER = MagicalMatrix.Zad4;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -272,14 +272,14 @@
 			};
 			name = Debug;
 		};
-		3EED410B2EE8D9D90093BE23 /* Release */ = {
+		3E9A70AD2EF3EE3B000E8300 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Zad3/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Zad4/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -292,7 +292,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = MagicalMatrix.Zad3;
+				PRODUCT_BUNDLE_IDENTIFIER = MagicalMatrix.Zad4;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -303,25 +303,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3EED40F12EE8D9D80093BE23 /* Build configuration list for PBXProject "Zad3" */ = {
+		3E9A70932EF3EE3A000E8300 /* Build configuration list for PBXProject "Zad4" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3EED41072EE8D9D90093BE23 /* Debug */,
-				3EED41082EE8D9D90093BE23 /* Release */,
+				3E9A70A92EF3EE3B000E8300 /* Debug */,
+				3E9A70AA2EF3EE3B000E8300 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3EED41092EE8D9D90093BE23 /* Build configuration list for PBXNativeTarget "Zad3" */ = {
+		3E9A70AB2EF3EE3B000E8300 /* Build configuration list for PBXNativeTarget "Zad4" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3EED410A2EE8D9D90093BE23 /* Debug */,
-				3EED410B2EE8D9D90093BE23 /* Release */,
+				3E9A70AC2EF3EE3B000E8300 /* Debug */,
+				3E9A70AD2EF3EE3B000E8300 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 3EED40EE2EE8D9D80093BE23 /* Project object */;
+	rootObject = 3E9A70902EF3EE3A000E8300 /* Project object */;
 }
