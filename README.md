@@ -1,9 +1,13 @@
 Adam Migdalski
-ZAD 4
-4.1 zrobione
-4.2 nie zrobione
-4.3 nie zrobione
+ZAD 5
+5.1 zrobione
 
-4.4 nie zrobione
-4.5 nie zrobione
+zgodnie z zaleceniami hasla nie sa przechowywane bezposrednio tekstem
+
+(w komentarzu obok kodu servera przechowujacego dane znajduje sie tekstowo wersja hasla w celach testowych do sprawdzania procesu logowania)
+5.2 nie zrobione
+5.3 nie zrobione
+
+5.4 nie zrobione
+5.5 nie zrobione
 

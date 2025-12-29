@@ -1,53 +1,36 @@
 from flask import Flask, jsonify, request
+import bcrypt
 
 app = Flask(__name__)
 
+seed = b'$2b$12$zzS46iSXYpX9lPRPO3PQf.'
+
 #data creation
 
-categories = [
+#for the sake of assigment: text version of password is: "admin"
+users = [
     {
-        'id': 1,
-        'name': 'nabial'
-    },
-    {
-        'id': 2,
-        'name': 'owoce'
+        'username': 'admin',
+        'password': '$2b$12$zzS46iSXYpX9lPRPO3PQf.vm2Xu6j/IIh0cUkD7oTOMKtp.NTUqs.'
     }
 ]
 
-products = [
-    {
-        'id': 1,
-        'name': 'maslo klarowane',
-        'price': 28.99,
-        'desc': 'najlepsze do smarowania',
-        'category_id': 1
-    },
-    {
-        'id': 1,
-        'name': 'mleko UHT',
-        'price': 4.59,
-        'desc': 'kazdy pije mleko z kawa',
-        'category_id': 1
-    },
-    {
-        'id': 1,
-        'name': 'banany kisc',
-        'price': 6.99,
-        'desc': 'dla wszystkich, szczegolnie dla siebie',
-        'category_id': 2
-    }
-]
 
-#data handling
-
-@app.route('/categories', methods=['GET'])
-def get_categories():
-    return jsonify(categories)
+@app.route('/login', methods=['POST'])
+def login():
+    loginData = request.get_json()
+    loginUsername = loginData.get('username')
+    loginPassword = loginData.get('password')
     
-@app.route('/products', methods=['GET'])
-def get_products():
-    return jsonify(products)
+    for user in users:
+        if loginUsername == user['username']:
+            if bcrypt.checkpw(bytes(loginPassword, 'utf-8'), bytes(user['password'], 'utf-8')):
+                return jsonify({"username": user['username']})
+            else:
+                return jsonify({"message": "incorrect password"}), 401
+                
+    return jsonify({"message": "username does not exist"}), 400
+
 
 if __name__ == '__main__':
     app.run(debug=True)
