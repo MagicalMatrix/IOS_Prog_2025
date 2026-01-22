@@ -1,13 +1,14 @@
 Adam Migdalski
-ZAD 5
-5.1 zrobione
+ZAD 6
+6.1 zrobione
 
-zgodnie z zaleceniami hasla nie sa przechowywane bezposrednio tekstem
+zaimplementowana prosta weryfikacja poprawnosci danych z karty
 
-(w komentarzu obok kodu servera przechowujacego dane znajduje sie tekstowo wersja hasla w celach testowych do sprawdzania procesu logowania)
-5.2 nie zrobione
-5.3 nie zrobione
+(prosta, nie wystarcza przy prawdziwej aplikacji ale wystarcza na potrzeby mockup'u)
 
-5.4 nie zrobione
-5.5 nie zrobione
+6.2 nie zrobione
+6.3 nie zrobione
+
+6.4 nie zrobione
+6.5 nie zrobione
 
